@@ -10,6 +10,7 @@ class Radio
   def initialize(playlist = [])
     @playlist = playlist
     @default = 'kxopViU98Xo' #Sax Guy! hu3hu3
+    @current = @default
   end
 
   def next

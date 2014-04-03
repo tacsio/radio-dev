@@ -6,7 +6,7 @@ before do
 end
 
 get '/' do
-  @current = @radio.next
+  @current = @radio.current
   erb :index
 end
 
