@@ -18,7 +18,8 @@
         videoId: '<%= @current %>',
         events: {
           'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
+          'onStateChange': onPlayerStateChange,
+          'onError': onPlayerError
         }
       });
     }
@@ -33,7 +34,19 @@
     //    the player should play for six seconds and then stop.
     function onPlayerStateChange(event) {
       if (event.data == YT.PlayerState.ENDED) {
-        $.ajax({
+        nextVideo();
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+
+    function onPlayerError(event){
+      nextVideo();
+    }
+
+    function nextVideo(){
+      $.ajax({
           url: "/next",
           dataType: "html",
           success: function(data) {
@@ -41,10 +54,6 @@
             player.loadVideoById(data, 0, 'default');
           }
         });
-      }
-    }
-    function stopVideo() {
-      player.stopVideo();
     }
 
     function updateQueueSize() {

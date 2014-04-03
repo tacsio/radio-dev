@@ -19,7 +19,7 @@ class Radio
   end
 
   def add(url)
-    music = parse_youtube_url(url)
+    music = parse_youtube_url(url) if url
     @playlist << music unless @playlist.include? music
     self.next if @current == @default
   end
