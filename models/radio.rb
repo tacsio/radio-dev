@@ -21,6 +21,7 @@ class Radio
   def add(url)
     music = parse_youtube_url(url)
     @playlist << music unless @playlist.include? music
+    self.next if @current == @default
   end
 
   def queue_size
