@@ -9,19 +9,15 @@ class Radio
 
   def initialize(playlist = [])
     @playlist = playlist
-    @default = 'kxopViU98Xo' #Sax Guy! hu3hu3
-    @current = @default
   end
 
   def next
-    @playlist << @default unless @current #When the queue is empty
     @current = @playlist.shift
   end
 
   def add(url)
     music = parse_youtube_url(url) if url
     @playlist << music unless @playlist.include? music
-    self.next if @current == @default
   end
 
   def queue_size

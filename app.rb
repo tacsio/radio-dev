@@ -2,7 +2,6 @@ require 'sinatra'
 
 before do
   @radio = Radio.instance
-  @radio.show_playlist
 end
 
 get '/' do
