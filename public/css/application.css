@@ -1,0 +1,17 @@
+h1, h2, h3 {
+	font-family: 'Happy Monkey'
+}
+
+body {
+	text-align: center;
+	background-color: #e5e5e5
+}
+
+.row {
+	text-align: center;
+}
+
+.container, .container-fluid {
+	font-family: 'Joti One';
+	margin-top: 20px;
+}

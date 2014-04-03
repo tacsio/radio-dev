@@ -1,0 +1,24 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <form class='form-horizontal' role='form' id='add_music'>
+      <div class='form-group'>
+        <label class='col-sm-2 control-label' for='music-url'>Music: </label>
+        <div class='col-sm-10'>
+          <input type='text' name='url' class='form-control' id='music-url' placeholder='Put an youtube url here!'>
+        </div>
+      </div>
+      <button type='submit' class='btn btn-default'>Rock it</button>
+    </form>
+  </div>
+
+  <div class='row'>
+    <div>
+      Queue size <span id='info'> <%= erb :info, layout: false %> </info>
+    </div>
+  </div>
+
+  <div class='row' id='youtube-player'>
+    <%= erb :player, layout: false %>
+  </div>
+
+</div>
