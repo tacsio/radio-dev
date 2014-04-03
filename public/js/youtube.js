@@ -12,9 +12,11 @@ $(function (){
       //the type of data we are expecting back from server, could be json too
       dataType: "html",
       success: function(data) {
-        //if our ajax request is successful, replace the content of our viz div with the response data
-        $('#info').html(data);
         $('#music-url').val("");
+
+        $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+data+'?v=2&alt=jsonc',function(data,status,xhr){
+          $('#playlist').append('<li>' + data.data.title + '</li>');
+        });
       }
     });
   });

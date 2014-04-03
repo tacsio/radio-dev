@@ -17,18 +17,9 @@ class Radio
 
   def add(url)
     music = parse_youtube_url(url) if url
-    @playlist << music unless @playlist.include? music
-  end
-
-  def queue_size
-    @playlist.size
-  end
-
-  def show_playlist
-    puts "playlist :"
-    @playlist.each do |m|
-      puts "> #{m}"
-    end
+    puts music
+    @playlist << music
+    music
   end
 
   private

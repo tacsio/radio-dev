@@ -35,6 +35,7 @@
     function onPlayerStateChange(event) {
       if (event.data == YT.PlayerState.ENDED) {
         nextVideo();
+        //TODO: remove playlist via websocket
       }
     }
     function stopVideo() {

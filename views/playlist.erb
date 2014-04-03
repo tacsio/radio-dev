@@ -1,0 +1,7 @@
+<% @radio.playlist.each do |video_id| %>
+  <script>
+    $.getJSON('http://gdata.youtube.com/feeds/api/videos/<%= video_id %>?v=2&alt=jsonc',function(data,status,xhr){
+      $('#playlist').append('<li>' + data.data.title + '</li>');
+    });
+  </script>
+<% end %>

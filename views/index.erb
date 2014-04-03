@@ -11,9 +11,14 @@
     </form>
   </div>
 
-  <div class='row'>
+  <div class="row">
     <div>
-      Queue size <span id='info'> <%= erb :info, layout: false %> </info>
+      <h3>Playlist:</h3>
+      <div>
+        <span> <%= erb :playlist, layout: false %> </span>
+        <ol id='playlist'>
+        </ol>
+      </div>
     </div>
   </div>
 </div>

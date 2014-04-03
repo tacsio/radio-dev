@@ -12,7 +12,6 @@ end
 get '/add' do
   url = params[:url]
   @radio.add(url)
-  @radio.queue_size.to_s
 end
 
 get '/host' do
