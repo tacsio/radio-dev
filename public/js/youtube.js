@@ -14,7 +14,7 @@ $(function (){
       success: function(data) {
         //if our ajax request is successful, replace the content of our viz div with the response data
         $('#info').html(data);
-        $('#music_url').val("");
+        $('#music-url').val("");
       }
     });
   });
