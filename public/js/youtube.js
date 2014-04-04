@@ -22,3 +22,8 @@ $(function (){
   });
 });
 
+function getVideoName(video_id, callback) {
+  $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+video_id+'?v=2&alt=jsonc',function(data,status,xhr){
+    callback(data.data.title);
+  });
+}

@@ -14,9 +14,9 @@ get '/add' do
   @radio.add(url)
 end
 
-get '/host' do
+get '/live' do
   @current = @radio.current
-  erb :host
+  erb :live
 end
 
 get '/next' do

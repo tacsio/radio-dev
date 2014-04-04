@@ -1,4 +1,7 @@
+
+<h2 id='music-title'></h2>
 <div class='row' id='player'>
+
   <script>
       // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -26,6 +29,9 @@
 
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
+      console.log('here');
+      debugger;
+      updateVideoName('<%= @current %>');
       event.target.playVideo();
     }
 
@@ -51,17 +57,16 @@
           url: "/next",
           dataType: "html",
           success: function(data) {
-            updateQueueSize();
+            updateVideoName(data);
             player.loadVideoById(data, 0, 'default');
           }
         });
     }
 
-    function updateQueueSize() {
-      var queue_size = $('#info').text() -1;
-      if(queue_size >= 0){
-        $('#info').html(queue_size);
-      }
+    function updateVideoName(video_id) {
+      getVideoName(video_id, function(name){
+        $('#music-title').html(name);
+      });
     }
   </script>
 </div>
