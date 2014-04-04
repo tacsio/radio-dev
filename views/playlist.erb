@@ -1,6 +1,6 @@
 <% @radio.playlist.each do |video_id| %>
   <script>
-    getVideoName(video_id, function(name) {
+    getVideoName('<%=video_id%>', function(name) {
       $('#playlist').append('<li>' + name + '</li>');
     });
   </script>
