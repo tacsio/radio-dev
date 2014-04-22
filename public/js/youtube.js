@@ -14,8 +14,8 @@ $(function (){
       success: function(data) {
         $('#music-url').val("");
 
-        $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+data+'?v=2&alt=jsonc',function(data,status,xhr){
-          $('#playlist').append('<li>' + data.data.title + '</li>');
+        getVideoName(data, function(name){
+          $('#playlist').append('<li>' + name + '</li>');
         });
       }
     });
