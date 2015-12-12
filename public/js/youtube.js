@@ -14,7 +14,7 @@ $(function (){
       success: function(data) {
         $('#music-url').val("");
 
-        getVideoName(data, function(name){
+        video_name(data, function(name){
           $('#playlist').append('<li>' + name + '</li>');
         });
       }
@@ -22,8 +22,14 @@ $(function (){
   });
 });
 
-function getVideoName(video_id, callback) {
-  $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+video_id+'?v=2&alt=jsonc',function(data,status,xhr){
-    callback(data.data.title);
-  });
+function video_name(video_id, callback) {
+	var url = 'https://www.youtube.com/watch?v=' + video_id;
+
+	$.getJSON('https://noembed.com/embed',
+		{ format: 'json',
+			url: url
+		},
+		function (data) {
+			callback(data.title);
+		});
 }

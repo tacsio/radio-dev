@@ -1,7 +1,22 @@
-<% @radio.playlist.each do |video_id| %>
-  <script>
-    getVideoName('<%=video_id%>', function(name) {
-      $('#playlist').append('<li>' + name + '</li>');
-    });
-  </script>
-<% end %>
+<script type='text/javascript'>
+	var videos = [];
+	var index = 0;
+	<% @radio.playlist.each do |video_id| %>
+		videos.push('<%=video_id%>');
+	<% end %>
+
+	videos.forEach(function(e) {
+		index = index + 1;
+
+		(function(index) {
+			video_name(e, function(name){
+				var $element = $("#playlist li:eq(" + (index - 1) + ")");
+				if($element.length == 0) {
+					$('#playlist').append('<li>' + name + '</li>');
+				} else {
+					$element.before('<li>' + name + '</li>');
+				}
+			});
+		})(index);
+	});
+</script>
